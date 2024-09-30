@@ -13,57 +13,56 @@ using namespace std;
 
 void randomizeItems(string items[]){
     
-    string temp[3];
+    
     
     for(int i = 0; i < 3; i++){
     
     int n = rand() % 3;
     
 
-    temp[i] = itemNames[n];
+    items[i] = itemNames[n];
     for(int j = 0; j < i; j++){
-    if(temp[i] == temp[j]){
+    if(items[i] == items[j]){
         i--;
+        break;
     }
     }   
+ }
 }
-    for(string item: temp){
-            cout << item << " ";
-        }
-}
-
 
 void randomizePrice(double prices[]){
     
-    
-    
-    double temp[3];
-    
     for(int i = 0; i < 3; i++){
     
     int n = rand() % 3;
     
-
-    temp[i] = itemValues[n];
+    prices[i] = itemValues[n];
     for(int j = 0; j < i; j++){
-    if(temp[i] == temp[j]){
+    if(prices[i] == prices[j]){
         i--;
         break;
     }
     }   
     
-}
-    for(double item: temp){
-        cout << setprecision(2) << fixed << "$" << item << " ";
-    }
+ }
+    
     
 
 }
+
+void printItemsAndPrices(string items[], double prices[]){
+    for(int i = 0; i < 3; i++){
+        cout << setw(50) << items[i] << " - " << setprecision(2) << fixed << "$" << prices[i] << endl;
+    }
+}
+
+
 void buyItems(){
     bool continueShopping = true;
+    cout << "Press the number of the item you would like to buy. If you are done, press 0" << endl;
     do{
         int playerChoice;
-        cout << "Press the number of the item you would like to buy. If you are done, press 0" << endl;
+        
         cin >> playerChoice;
         switch(playerChoice){
             case 1:
@@ -94,14 +93,17 @@ void buyItems(int itemNumber){
 }
 
 
+
 int main(){
     double balance = 50.00;
         srand(time(0));
         string dailyItems[3];
         double dailyPrices[3];
-        cout << setw(50) << "Welcome to the Shop!" << endl << "Here's what's available today: " << endl;
+        cout << "Welcome to the Shop!" << endl << "Here's what's available today: " << endl;
         randomizeItems(dailyItems);
         randomizePrice(dailyPrices);
+        printItemsAndPrices(dailyItems, dailyPrices);
+        cout << endl;
         buyItems();
         cout << endl;
     
