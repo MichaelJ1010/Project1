@@ -10,7 +10,26 @@ using namespace std;
     string dailyItems[3];
     double dailyPrices[3];
 
+void randomizeItems(string items[]);
+void randomizePrice(double prices[]);
+void printItemsAndPrices(string items[], double prices[]);
+void buyItems(int itemNumber);
+void buyItems();
 
+int main(){
+    double balance = 50.00;
+        srand(time(0));
+        cout << "Welcome to the Shop!" << endl << "Here's what's available today: " << endl;
+        randomizeItems(dailyItems);
+        randomizePrice(dailyPrices);
+        printItemsAndPrices(dailyItems, dailyPrices);
+        cout << endl;
+        buyItems();
+        cout << endl;
+    
+
+    return 0;
+}
 
 
 void randomizeItems(string items[]){
@@ -101,17 +120,3 @@ void buyItems(){
 
 
 
-int main(){
-    double balance = 50.00;
-        srand(time(0));
-        cout << "Welcome to the Shop!" << endl << "Here's what's available today: " << endl;
-        randomizeItems(dailyItems);
-        randomizePrice(dailyPrices);
-        printItemsAndPrices(dailyItems, dailyPrices);
-        cout << endl;
-        buyItems();
-        cout << endl;
-    
-
-    return 0;
-}
