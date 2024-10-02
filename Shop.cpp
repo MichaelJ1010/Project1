@@ -33,8 +33,8 @@ void startGame(){ //sets correct day and randomizes shop items
     
     while(true){
     
-    cout << "*****************************************************************************" << endl;
-    cout << "Welcome to the Shop! Today is " << getDay(trackDay++) << endl << "Here's what's available today: " << endl;
+    cout << "***************************************************************************************" << endl
+    << "Welcome to the Shop! Today is " << getDay(trackDay++) << endl << "Here's what's available today: " << endl;
     if(trackDay == 8){
         trackDay = 1;
     }
@@ -125,20 +125,22 @@ void randomizeQuantity(int quantity[]){ //randomizes quantities for the current 
 
 void printQuantityItemPrices(int quantity[], string items[], double prices[]){ //formats items and prices nicely for the user
     for(int i = 0; i < 3; i++){
-        cout << i + 1 << ") " << items[i] << " - " << setprecision(2) << fixed << "$" << prices[i] << setw(10);
+        cout << i + 1 << ") " << items[i] << " - " << setprecision(2) << fixed << "$" << prices[i]  << " " 
+        << quantity[i] << " left"<< setw(10);
     }
 }
 
 
 void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string dailyItems[]){ //determines if user can buy item
     double futureBalance = currentBalance - dailyPrices[itemNumber - 1];
-    if(itemNumber == 0){
-            return;
+    if(dailyQuantity[itemNumber - 1] == 0){
+            cout << "Oops! There's none left to buy!" << endl;
         }else if(futureBalance < 0 ){
             cout << "Oops! You don't have enough to buy that!" << endl;
         }else{
             currentBalance = futureBalance;
-            cout << "Bought " << dailyItems[itemNumber - 1] << " for " << setprecision(2) << fixed << "$" << dailyPrices[itemNumber - 1] << endl;            
+            cout << "Bought " << dailyItems[itemNumber - 1] << " for " << setprecision(2) << fixed << "$" << dailyPrices[itemNumber - 1] << endl;
+            dailyQuantity[itemNumber - 1]--;
         }
 }
 
@@ -146,9 +148,9 @@ void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string d
 void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[]){ //determines what item user is trying to buy
     bool continueShopping = true;
     cout << endl << "You are starting the day off with $" << currentBalance << endl;
-    cout << "Press the number of the item you would like to buy. If you are done, press 4" << endl;
+    cout << "Type the number of the item you would like to buy. If you are done today, press 4" << endl;
     do{
-        cout << "*****************************************************************************" << endl;
+        cout << "***************************************************************************************" << endl;
         char playerChoice;
         cin >> playerChoice;
         
