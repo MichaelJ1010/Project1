@@ -1,4 +1,5 @@
 AUTHOR: Michael Johnson
+![testShot](https://github.com/user-attachments/assets/c8b29aae-73d7-429c-b219-62b274807b3c)
 After running the code, the user will start off with some money in their account. The cosole will give the user a prompt to try and earn 310 points by the end of the tenth day before the shop closes. 
 The shop will have a randomized assortment of items to purchase each day. 
 The user is able to choose which items they would like to purchase, and they will get charged accordingly if they can afford it and if there's an item left to purchace. If they do buy an item, they will also earn points.
