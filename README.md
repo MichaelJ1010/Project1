@@ -1,8 +1,15 @@
-AUTHOR: Michael Johnson
+Shop Game
+Author: Michael Johnson
+Overview
+Welcome to Shop Game, where your goal is to earn 310 points by making strategic purchases over the course of 10 days. Each day, you'll start with a set amount of money and face a randomly stocked shop full of various items to purchase. Every item offers a unique point value, but your funds are limited, so choose wisely!
 
-After running the code, the user will start off with some money in their account. The cosole will give the user a prompt to try and earn 310 points by the end of the tenth day before the shop closes. 
-The shop will have a randomized assortment of items to purchase each day. 
-The user is able to choose which items they would like to purchase, and they will get charged accordingly if they can afford it and if there's an item left to purchace. If they do buy an item, they will also earn points.
-When the user is finished for the day, the next day will occur and present how many points and cash they have. 
-If the user is able to complete the goal of achieving 310 points by the end of the tenth day, they will get a winner message. If they don't achieve the goal, they will get a lose message enstead.
-
+How to Play
+Start with cash: You begin each day with some money in your account.
+Shop for items: The shop will offer a random assortment of items each day.
+Purchase and earn points: You can choose items to purchase based on what you can afford and how many items are left in stock. Each purchase adds points to your score.
+Daily progress: At the end of each day, your current points and remaining cash will be displayed.
+Reach your goal: By the end of the 10th day, you need to have earned at least 310 points to win. If you succeed, you'll receive a winner message. If not, a message will let you know you didn't meet the goal.
+Features
+Randomized shop items: The shop's inventory is different every day, offering a new challenge each round.
+Strategic purchases: Decide which items to buy based on their cost and point value, while managing your budget.
+Win or lose: Your goal is to earn 310 points before the shop closes after 10 days. Can you reach the target?
