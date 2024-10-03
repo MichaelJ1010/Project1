@@ -33,6 +33,9 @@ Welcome to **Shop Game**, where your goal is to earn 310 points by making strate
 ![image](https://github.com/user-attachments/assets/65d8734d-1afc-40a2-8830-c7876bb352e6)
 
 ### Video(s)
+These videos show where in the code I implemented everything required in the rubric.
 
-https://github.com/user-attachments/assets/605b8e6a-8885-4575-9a0a-bbe76c72d8b7
+- Criteria 1-3
+  
+https://github.com/user-attachments/assets/6f1944b6-291c-4c5c-97fd-564685e9019e
 
