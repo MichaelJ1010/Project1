@@ -8,7 +8,7 @@ using namespace std;
 const string itemNames[] = {"apple", "orange", "strawberry", "bannanna", "grape"};
 const double itemValues[] = {12.50, 12.00, 13.50, 11.50, 13.00};
 int dailyQuantity[3];
-int points;
+short int points;
 
     
 
@@ -31,15 +31,15 @@ int main(){
 void startGame(){ //sets correct day and randomizes shop items
     short int totalDays = 0;  
     short int trackDay = 1;  
-    double totalBalance = 50.00;
+    double totalBalance = 50.00;  
     string dailyItems[3];
     double dailyPrices[3];
     
 
     cout << "***************************************************************************************" << endl;
     cout << "This is a new shop that will stay open for 10 days. You can earn special reward points" << endl
-    << "(1 point per dollar spend when you spend money in the shop." << endl
-    << "Try to get over 500 points before the shop closes!" << endl;
+    << "(1 point per dollar spent in the shop)" << endl
+    << "Try to get over 310 points before the shop closes!" << endl;
     
     while(true){
     cout << "***************************************************************************************" << endl;
@@ -67,6 +67,14 @@ void startGame(){ //sets correct day and randomizes shop items
     printQuantityItemPrices(dailyQuantity,dailyItems,dailyPrices);
     buyItems(dailyQuantity, dailyPrices, dailyItems, totalBalance);
     
+    }
+
+    if(points >= 310){
+        cout << "Horray! You completed the goal!" << endl;
+        cout << "***************************************************************************************" << endl;
+    }else{
+        cout << "Aw, shucks! You didn't achieve the goal of 310 points!" << endl;
+        cout << "***************************************************************************************" << endl;
     }
 }
 
@@ -105,7 +113,7 @@ void randomizeItems(string items[]){ //randomizes items for the current day
         
     for(int i = 0; i < 3; i++){
     
-    short int randomNumber  = rand() % size(itemNames);
+    short int randomNumber = rand() % size(itemNames);
 
     items[i] = itemNames[randomNumber];
     for(int j = 0; j < i; j++){
@@ -167,7 +175,7 @@ void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string d
 
 void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance){ //determines what item user is trying to buy
     bool continueShopping = true;
-    cout << endl << "You are starting the day off with $" << currentBalance << "and " << points << " points" << endl;
+    cout << endl << "You are starting the day off with $" << currentBalance << " and " << points << " points" << endl;
     cout << "Type the number of the item you would like to buy. If you are done today, press 4" << endl;
     do{
         cout << "***************************************************************************************" << endl;
@@ -202,7 +210,7 @@ void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], do
     }while(continueShopping);
 }
 
-int calculatePoints(double price[], int playerChoice){ //calculates points based on dollar ammount spent on item
+int calculatePoints(double price[], int playerChoice){ //calculates points based on dollar ammount spent on item 
     return static_cast<int>(price[playerChoice - 1]);
 }
 
