@@ -47,6 +47,10 @@ https://github.com/user-attachments/assets/feb208c3-cdd3-4d03-9ca1-7e67f914a82b
 
 https://github.com/user-attachments/assets/a9b41ef0-f061-4af7-b022-2053017118bf
 
+- Criteria 10-12
+
+https://github.com/user-attachments/assets/5df5c3e3-8e6d-4e31-9e76-06c3f633d1dd
+
 
 
 
