@@ -4,7 +4,7 @@
 
 ### Overview
 
-Welcome to **Shop Game**, where your goal is to earn 310 points by making strategic purchases over the course of 10 days. Each day, you'll start with a set amount of money and face a randomly stocked shop full of various items to purchase. Each dollar you spend in the shop equates to one point.
+Welcome to **Shop Game**, where your goal is to earn 310 points by making strategic purchases over the course of 10 days. Each dollar you spend in the shop equates to one point. Each day, you'll start with a set amount of money and face a randomly stocked shop full of various items to purchase. 
 
 ### How to Play
 
