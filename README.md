@@ -20,3 +20,4 @@ Welcome to **Shop Game**, where your goal is to earn 310 points by making strate
 - **Strategic purchases**: Decide which items to buy based on their cost and point value, while managing your budget.
 - **Win or lose**: Your goal is to earn 310 points before the shop closes after 10 days. Can you reach the target?
 
+![image](https://github.com/user-attachments/assets/25602ec8-123d-4776-b13a-0d73647f1fde)
