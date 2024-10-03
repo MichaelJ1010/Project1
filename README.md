@@ -39,3 +39,9 @@ These videos show where in the code I implemented everything required in the rub
   
 https://github.com/user-attachments/assets/6f1944b6-291c-4c5c-97fd-564685e9019e
 
+- Criteria 4-6
+
+https://github.com/user-attachments/assets/feb208c3-cdd3-4d03-9ca1-7e67f914a82b
+
+
+
