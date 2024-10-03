@@ -32,3 +32,7 @@ Welcome to **Shop Game**, where your goal is to earn 310 points by making strate
   
 ![image](https://github.com/user-attachments/assets/65d8734d-1afc-40a2-8830-c7876bb352e6)
 
+###Video(s)
+
+https://github.com/user-attachments/assets/605b8e6a-8885-4575-9a0a-bbe76c72d8b7
+
