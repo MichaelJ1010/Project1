@@ -6,78 +6,96 @@
 using namespace std;
 
 const string itemNames[] = {"apple", "orange", "strawberry", "bannanna", "grape"};
-const double itemValues[] = {2.50, 2.00, 3.50, 1.50, 3.00};
-double currentBalance = 50.00;
+const double itemValues[] = {12.50, 12.00, 13.50, 11.50, 13.00};
+int dailyQuantity[3];
+int points;
+
     
 
 void randomizeItems(string items[]);
 void randomizePrice(double prices[]);
-void randomizeQuantity(int quantity[]);
+void randomizeQuantity();
 void printQuantityItemPrices(int quantity[], string items[], double prices[]);
-void buyItems(int itemNumber, int dailyQuantity[], double dailyPrices[], string dailyItems[]);
-void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[]);
+void buyItems(int itemNumber, int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance);
+void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance);
 void startGame();
-string getDay(int day);
+string getDay(int day, double &currentBalance);
+void assignPoints(string items[], int size);
 
 int main(){
-        srand(time(0));
-        startGame();
+    srand(time(0));
+    startGame();
     return 0;
 }
 
 void startGame(){ //sets correct day and randomizes shop items
-    short int trackDay = 1;
+    short int totalDays = 0;  
+    short int trackDay = 1;  
+    double totalBalance = 50.00;
     string dailyItems[3];
     double dailyPrices[3];
-    int dailyQuantity[3];
+    
+
+    cout << "***************************************************************************************" << endl;
+    cout << "This is a new shop that will stay open for 10 days. You can earn special reward points" << endl
+    << "when you spend money in the shop. Try to get over 500 points before the shop closes!" << endl;
     
     while(true){
-    
-    cout << "***************************************************************************************" << endl
-    << "Welcome to the Shop! Today is " << getDay(trackDay++) << endl << "Here's what's available today: " << endl;
+    cout << "***************************************************************************************" << endl;
+
+    if(totalDays < 10){
+    cout << "day " << totalDays << ": " << 10 - totalDays << " days left!" << endl;
+    totalDays++;
+    }else if(totalDays == 10){
+        cout << "day " << totalDays << ": " << "last day!" << endl;
+        totalDays++;
+    }else{
+        break;
+    }
+
+
+    cout << "Welcome to the Shop! Today is " << getDay(trackDay++, totalBalance) << endl << "Here's what's available today: " << endl;
     if(trackDay == 8){
         trackDay = 1;
     }
 
+
     randomizeItems(dailyItems);
     randomizePrice(dailyPrices);
-    randomizeQuantity(dailyQuantity);
-   printQuantityItemPrices(dailyQuantity,dailyItems,dailyPrices);
-    buyItems(dailyQuantity, dailyPrices, dailyItems);
+    randomizeQuantity();
+    printQuantityItemPrices(dailyQuantity,dailyItems,dailyPrices);
+    buyItems(dailyQuantity, dailyPrices, dailyItems, totalBalance);
     
-    if(trackDay == 10){
-        break;
-    }
     }
 }
 
 
-string getDay(int day){ //returns the day we are on
+string getDay(int day, double &currentBalance){ //returns the day we are on
     if(day % 7 == 0){
-        return "Sunday";
+        return "Sunday, your day off. No money added.";
     }
     if(day % 6 == 0){
-        return "Saturday";
+        return "Saturday, your day off. No money added.";
     }
     if(day % 5 == 0){
-        currentBalance += 30;
-        return "Friday";
+        currentBalance += 20;
+        return "Friday, you get off early. You earned $20 today.";
     }
     if(day % 4 == 0){
         currentBalance += 30;
-        return "Thursday";
+        return "a regular Thursday, earned $30.";
     }
     if(day % 3 == 0){
         currentBalance += 30;
-        return "Wednesday";
+        return "discount Wednesday! earned $30";
     }
     if(day % 2 == 0){
         currentBalance += 30;
-        return "Tuesday";
+        return "a normal Tuesday. Earned $30.";
     }
-    if(day % 1 == 0){
-        currentBalance += 30;
-        return "Monday";
+    if(day % 1 == 0){  
+        currentBalance += 40;
+        return "Monday, and you're starting strong! Earned $40";
     }
 }
 
@@ -86,7 +104,7 @@ void randomizeItems(string items[]){ //randomizes items for the current day
         
     for(int i = 0; i < 3; i++){
     
-    short int randomNumber  = rand() % 3;
+    short int randomNumber  = rand() % size(itemNames);
 
     items[i] = itemNames[randomNumber];
     for(int j = 0; j < i; j++){
@@ -103,7 +121,7 @@ void randomizePrice(double prices[]){ //randomizes prices for the current day
     
     for(int i = 0; i < 3; i++){
     
-    short int randomNumber = rand() % 3;
+    short int randomNumber = rand() % size(itemValues);
     
     prices[i] = itemValues[randomNumber];
     for(int j = 0; j < i; j++){
@@ -117,8 +135,8 @@ void randomizePrice(double prices[]){ //randomizes prices for the current day
 
 
 void randomizeQuantity(int quantity[]){ //randomizes quantities for the current day
-    for(int i = 0; i < 3; i++){
-    quantity[i] = (rand() % 3) + 1;
+    for(int &item: dailyQuantity){
+    item = (rand() % 5) + 3;
     }    
  }
 
@@ -131,7 +149,7 @@ void printQuantityItemPrices(int quantity[], string items[], double prices[]){ /
 }
 
 
-void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string dailyItems[]){ //determines if user can buy item
+void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance){ //determines if user can buy item
     double futureBalance = currentBalance - dailyPrices[itemNumber - 1];
     if(dailyQuantity[itemNumber - 1] == 0){
             cout << "Oops! There's none left to buy!" << endl;
@@ -145,7 +163,7 @@ void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string d
 }
 
 
-void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[]){ //determines what item user is trying to buy
+void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance){ //determines what item user is trying to buy
     bool continueShopping = true;
     cout << endl << "You are starting the day off with $" << currentBalance << endl;
     cout << "Type the number of the item you would like to buy. If you are done today, press 4" << endl;
@@ -156,13 +174,13 @@ void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[]){ /
         
         switch(playerChoice){
             case '1':
-            buyItems(1, dailyQuantity, dailyPrices, dailyItems);
+            buyItems(1, dailyQuantity, dailyPrices, dailyItems, currentBalance);
             break;
             case '2':
-            buyItems(2, dailyQuantity, dailyPrices, dailyItems);
+            buyItems(2, dailyQuantity, dailyPrices, dailyItems, currentBalance);
             break;
             case '3':
-            buyItems(3, dailyQuantity, dailyPrices, dailyItems);
+            buyItems(3, dailyQuantity, dailyPrices, dailyItems, currentBalance);
             break;
             case '4':
             continueShopping = false;
@@ -181,7 +199,11 @@ void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[]){ /
     
     }while(continueShopping);
 }
+// void assignPoints(int points[], int size, string items[]){
+//     for(int item: points){
 
+//     }
+// }
 
 
 
