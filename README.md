@@ -1,9 +1,3 @@
-<style>
-body {
-    font-family: "Arial", sans-serif;
-}
-</style>
-
 # Shop Game
 
 ## Author: Michael Johnson
