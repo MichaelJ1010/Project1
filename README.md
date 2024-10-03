@@ -20,6 +20,3 @@ Welcome to **Shop Game**, where your goal is to earn 310 points by making strate
 - **Strategic purchases**: Decide which items to buy based on their cost and point value, while managing your budget.
 - **Win or lose**: Your goal is to earn 310 points before the shop closes after 10 days. Can you reach the target?
 
-### Installation
-
-To run the game, simply compile and execute the main file in your chosen development environment. No external libraries or dependencies are required.
