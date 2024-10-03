@@ -21,4 +21,6 @@ Welcome to **Shop Game**, where your goal is to earn 310 points by making strate
 - **Win or lose**: Your goal is to earn 310 points before the shop closes after 10 days. Can you reach the target?
 
 ![image](https://github.com/user-attachments/assets/8299a405-c91b-49ad-8fc8-54da874e4b72)
+![image](https://github.com/user-attachments/assets/820ff3cc-c811-4cab-b585-b8210bf9213d)
+![image](https://github.com/user-attachments/assets/65d8734d-1afc-40a2-8830-c7876bb352e6)
 
