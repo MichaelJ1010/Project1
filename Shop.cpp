@@ -20,7 +20,7 @@ void buyItems(int itemNumber, int dailyQuantity[], double dailyPrices[], string 
 void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance);
 void startGame();
 string getDay(int day, double &currentBalance);
-void assignPoints(string items[], int size);
+int calculatePoints(double price[], int size);
 
 int main(){
     srand(time(0));
@@ -38,7 +38,8 @@ void startGame(){ //sets correct day and randomizes shop items
 
     cout << "***************************************************************************************" << endl;
     cout << "This is a new shop that will stay open for 10 days. You can earn special reward points" << endl
-    << "when you spend money in the shop. Try to get over 500 points before the shop closes!" << endl;
+    << "(1 point per dollar spend when you spend money in the shop." << endl
+    << "Try to get over 500 points before the shop closes!" << endl;
     
     while(true){
     cout << "***************************************************************************************" << endl;
@@ -134,7 +135,7 @@ void randomizePrice(double prices[]){ //randomizes prices for the current day
 }
 
 
-void randomizeQuantity(int quantity[]){ //randomizes quantities for the current day
+void randomizeQuantity(){ //randomizes quantities for the current day
     for(int &item: dailyQuantity){
     item = (rand() % 5) + 3;
     }    
@@ -158,6 +159,7 @@ void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string d
         }else{
             currentBalance = futureBalance;
             cout << "Bought " << dailyItems[itemNumber - 1] << " for " << setprecision(2) << fixed << "$" << dailyPrices[itemNumber - 1] << endl;
+            points = points + calculatePoints(dailyPrices, itemNumber);
             dailyQuantity[itemNumber - 1]--;
         }
 }
@@ -165,7 +167,7 @@ void buyItems(int itemNumber,int dailyQuantity[], double dailyPrices[], string d
 
 void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], double &currentBalance){ //determines what item user is trying to buy
     bool continueShopping = true;
-    cout << endl << "You are starting the day off with $" << currentBalance << endl;
+    cout << endl << "You are starting the day off with $" << currentBalance << "and " << points << " points" << endl;
     cout << "Type the number of the item you would like to buy. If you are done today, press 4" << endl;
     do{
         cout << "***************************************************************************************" << endl;
@@ -199,11 +201,10 @@ void buyItems(int dailyQuantity[], double dailyPrices[], string dailyItems[], do
     
     }while(continueShopping);
 }
-// void assignPoints(int points[], int size, string items[]){
-//     for(int item: points){
 
-//     }
-// }
+int calculatePoints(double price[], int playerChoice){ //calculates points based on dollar ammount spent on item
+    return static_cast<int>(price[playerChoice - 1]);
+}
 
 
 
